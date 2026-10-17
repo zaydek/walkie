@@ -16,6 +16,7 @@ To help the person:
 - On the phone, with Tailscale on, scan the QR code walkie shows or open the link it printed, pick the session and hold to talk.
 - `walkie status` shows whether it is on and the phone's link; `walkie update` installs the newest version.
 - `walkie stop` stops a background walkie; `walkie uninstall` removes all of it.
+- Walkie sends a few usage counts, never words; `walkie telemetry off` stops them.
 
 ## Docs
 

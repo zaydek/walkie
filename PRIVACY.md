@@ -9,6 +9,8 @@ Last updated: 2026-10-17. This covers Walkie 0.2.
 - What you say goes to xAI to be turned into words, and the replies Walkie reads aloud go to xAI to be spoken. Both go
   straight from your computer to xAI with your own xAI key.
 - Feedback goes only when you send it.
+- Walkie sends a few usage counts to its own server (that it was installed, started, that a phone joined, and how
+  many turns were sent and read aloud), never your words. `walkie telemetry off` stops them.
 - Everything else Walkie keeps stays on your computer, in the folders listed below.
 
 ## What it reads
@@ -52,13 +54,19 @@ Last updated: 2026-10-17. This covers Walkie 0.2.
 | A sign-in with GitHub or Google, if you choose it (you can continue as a guest) | Walkie's own server, and GitHub or Google | When you install |
 | Your feedback's words, the files you add (screenshots or a screen recording), and the recent messages of the chat you were in unless you turn that off | Walkie's own server, for Walkie's author | Only when you send feedback; if it can't go, it is kept and tried again while Walkie is on |
 | A request for the newest version | Walkie's own server | Only when you run `walkie update` |
+| Usage counts: what happened (installed or updated, started in the foreground or background, a phone joined, a turn sent, a reply read aloud), a count since Walkie started, the time, Walkie's version, and your computer's system and CPU (for example linux-x64). Each is sent with this install's feedback sign-in, so it is filed under this install, and under your GitHub or Google account if you signed in with one | Walkie's own server, for Walkie's author | As each happens, once, never queued or retried. Never after `walkie telemetry off`, or while `DO_NOT_TRACK=1` is set |
 
 ## What it never sends
 
 - Your xAI key, except to xAI.
-- Anything from your phone or your sessions to Walkie's own server, except feedback you send.
+- Anything from your phone or your sessions to Walkie's own server, except feedback you send and the usage counts above.
+- In a usage count: your words, audio, session names, folder paths, your computer's name or your Tailscale login.
 - The audio it keeps on your computer, and its log.
-- Counts of which features you use.
+
+## Turning usage counts off
+
+`walkie telemetry off` stops them, and `walkie telemetry on` starts them again. Setting `DO_NOT_TRACK=1` stops them
+too. `walkie telemetry show` and `walkie status` say whether they are on.
 
 ## How to delete it
 

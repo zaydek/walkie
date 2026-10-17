@@ -35,8 +35,8 @@ Then:
 ## Privacy
 
 Walkie runs on your computer and reaches your phone only over your own Tailscale network. What you say and the replies
-it reads aloud go to xAI with your own key. Feedback goes only when you send it. [PRIVACY.md](PRIVACY.md) has the
-details.
+it reads aloud go to xAI with your own key. Feedback goes only when you send it. Walkie sends a few usage counts, never
+your words; `walkie telemetry off` stops them. [PRIVACY.md](PRIVACY.md) has the details.
 
 ## Links
 

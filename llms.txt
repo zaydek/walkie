@@ -1,0 +1,27 @@
+# Walkie
+
+> Walkie lets a person talk to Claude Code from their phone: they hold a button, say what they want, and hear the answer read back. It runs on a Mac (Apple silicon) or a Linux computer that has Claude Code, and the phone reaches it over Tailscale, signed in to the same account on both. It needs the person's own xAI API key (console.x.ai, API Keys).
+
+Install, in a terminal on that computer:
+
+```sh
+curl -fsSL https://chippy.fly.dev/walkie | sh
+```
+
+It asks for the xAI key, says what to do if Tailscale needs anything, then offers a sign-in (GitHub, Google, or continue as a guest) that only puts a name on feedback.
+
+To help the person:
+- `walkie` starts it and stays open, showing what happens; Ctrl-C stops it. Over SSH, `walkie start -b` keeps it running after they disconnect.
+- Start Claude Code in their project. If Claude Code was already open before the install, type `/reload-plugins` in it.
+- On the phone, with Tailscale on, scan the QR code walkie shows or open the link it printed, pick the session and hold to talk.
+- `walkie status` shows whether it is on and the phone's link; `walkie update` installs the newest version.
+- `walkie stop` stops a background walkie; `walkie uninstall` removes all of it.
+
+## Docs
+
+- [README.md](README.md): what Walkie is, what it needs, install and the first run
+- [PRIVACY.md](PRIVACY.md): what Walkie reads, keeps and sends
+
+## Optional
+
+- [LICENSE](LICENSE): MIT, for this repo only; Walkie itself is not covered
